@@ -1,0 +1,133 @@
+GET localhost:8080/order/getTotalPrice/ORDERID
+
+PUT localhost:8080/order/addProduct/{{orderId}}/{{productId}}/{{count}}
+
+GET localhost:8080/products/drinks/all
+
+GET localhost:8080/products/food/all
+
+POST localhost:8080/order/create
+Content-Type: application/json
+
+{
+  "id": 1,
+  "location": {
+    "id": LOCATIONID
+  },
+
+  "customer": {
+    "id": CUSTOMERID
+  },
+  "date_time": "2024.01.2:06:13"
+}
+
+
+PUT localhost:8080/location/addProductToStock
+Content-Type: application/json
+
+{
+  "location": {
+    "id": LOCATIONID
+  },
+
+  "product": {
+    "id": 1
+
+  },
+  "quantity": 40
+}
+
+PUT localhost:8080/location/addEmployee/{{locationId}}/{{employeeId}}
+
+
+POST localhost:8080/employee/create
+Content-Type: application/json
+
+{
+  "id": 22,
+  "firstName": "Ernie",
+  "lastName": "Eager",
+  "address": "EagersAddress",
+  "salary": 40000,
+  "title": "waiter"
+}
+
+
+POST localhost:8080/order/create
+Content-Type: application/json
+
+{
+
+}
+
+
+POST localhost:8080/order_products/create
+Content-Type: application/json
+
+{
+  "order": {
+    "id": 1
+  },
+
+  "product": {
+    "id": 3
+
+  },
+  "quantity": 2,
+  "price_per_unit": 10
+
+}
+
+
+
+
+GET localhost:8080/customer/1
+
+
+POST localhost:8080/createOrder
+Content-Type: application/json
+
+{
+"location": {
+"id": 1
+},
+
+"dateTime": "2023-12-07",
+"deliveryAddress": "blabla",
+"deliveryMan": "man"
+}
+
+
+DELETE localhost:8080/location/delete/1
+
+POST localhost:8080/manager/create
+Content-Type: application/json
+
+{
+  "location": {
+    "id": 1
+  },
+
+
+  "firstName": "Mr",
+  "lastName": "W" ,
+  "address": "123add",
+  "salary": 20000
+}
+
+POST localhost:8080/createOrder
+Content-Type: application/json
+
+{
+  "location": {
+    "id": 1
+  },
+
+  "dateTime": "2023-12-07",
+  "deliveryAddress": "blabla",
+  "deliveryMan": "man"
+}
+
+
+
+

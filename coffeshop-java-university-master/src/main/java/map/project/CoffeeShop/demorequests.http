@@ -1,0 +1,96 @@
+POST localhost:8080/customer/create
+Content-Type: application/json
+
+{
+  "id": 133,
+  "firstName": "Bob",
+  "lastName": "Customer",
+  "address": "CustomerAddress 123 Customercity 22333"
+}
+
+POST localhost:8080/location/create
+Content-Type: application/json
+
+{
+  "id": 900
+  "name": "myRestaurant",
+  "address": "IdontKnow130",
+  "active": true
+}
+
+POST localhost:8080/manager/create
+Content-Type: application/json
+
+{
+"id": 22,
+"firstName": "Manny",
+"lastName": "Manager",
+"address": "ManagerAddress100",
+"salary": 40000
+}
+
+PUT localhost:8080/setManager/{locationId}/{managerId}
+
+POST localhost:8080/employee/create
+Content-Type: application/json
+
+{
+"id": 22,
+"firstName": "Ernie",
+"lastName": "Eager",
+"address": "EagersAddress",
+"salary": 9000,
+"title": "waiter"
+}
+
+POST localhost:8080/employee/create
+Content-Type: application/json
+
+{
+"id": 22,
+"firstName": "Berta",
+"lastName": "Bonbon",
+"address": "BertasAddress11",
+"salary": 9000,
+"title": "waiter"
+}
+
+GET localhost:8080/location/all
+
+PUT localhost:8080/location/addEmployee/{{locationId}}/{{employeeId}}
+
+PUT localhost:8080/location/addProductToStock
+Content-Type: application/json
+
+{
+  "location": {
+    "id": LOCATIONID
+  },
+
+  "product": {
+    "id": 1
+  },
+  "quantity": 40
+}
+
+GET localhost:8080/location/allAvailableProducts/LOCATIONID
+
+POST localhost:8080/order/create
+Content-Type: application/json
+
+{
+  "id": 1,
+  "location": {
+    "id": LOCATIONID
+  },
+
+  "customer": {
+    "id": CUSTOMERID
+  },
+  "date_time": "2024.01.2:06:13"
+}
+
+PUT localhost:8080/order/addProduct/{{orderId}}/{{productId}}/{{count}}
+
+GET localhost:8080/order/getTotalPrice/ORDERID
+
