@@ -13,109 +13,60 @@ Create:
 In order to Create a new Entity you have to type
 POST localhost:8080/ENTITYNAME/create 
 And you have to pass a JSON object with All its attributes, ID is not important as it is controlled by the APP.
-POST localhost:8080/customer/create
-Content-Type: application/json
 
-{
-  "id": 133,
-  "firstName": "Bob",
-  "lastName": "Customer",
-  "address": "CustomerAddress 123 Customercity 22333"
-}
 If you have an entity with other entities as attributes, you only have to specify the Id of the entity it is related to.
-POST localhost:8080/order/create
-Content-Type: application/json
 
-{
-  "id": 1,
-  "location": {
-    "id": 1
-  },
-
-  "customer": {
-    "id": 1
-  },
-  "date_time": "2024.01.2:06:13"
-}
 
 Read:
 By default, every entity has an readById and readAll option.
-GET localhost:8080/order/4
 
-GET localhost:8080/order/all
-
-The general syntax should speak for itself.
 
 Update:
 Is done by using a concatenation of Delete and Create. But some entities have special methods to manipulate their attributes
+
 Delete:
-DELETE localhost:8080/order/4
-
+example: DELETE localhost:8080/order/4
 IMPORTANT: By deleting specific entities it is possible that other entities are going to be deleted as well.
-
 
 
 1.Customer
 Attributes:
 int id;
-
 String firstName;
-
 String lastName;
-
 String address;
 
 
 2.Employee
 Attributes:
 int id;
-
 Location location;
-
 String firstName;
-
 String lastName;
-
 String address;
-
 float salary;
-
 String title;
 
 3.Manager
 Attributes:
 int id;
-
 Location location;
-
 String firstName;
-
 String lastName;
-
 String address;
-
 float salary;
 
 4.Location
 Attributes:
 int id;
-
 Manager manager;
-
 String name;
-
 String address;
-
 boolean active;
-
 List<Employee> employees;
-
 List<Order> orders;
-
 List<Event> events;
-
 List<LocationProduct> locationProducts;
-
 
 Operations:
 Add Employee:
@@ -136,12 +87,10 @@ PUT localhost:8080/location/closeLocation/{locationId}
 Add Product to Location Stock:
 PUT localhost:8080/location/addProductToStock
 Content-Type: application/json
-
 {
   "location": {
     "id": LOCATIONID
   },
-
   "product": {
     "id": PRODUCTID
   },
@@ -157,13 +106,9 @@ GET localhost:8080/location/allAvailableProducts/{locationId}
 5.Event
 Attributes:
 int id;
-
 Location location;
-
 String name;
-
 String host;
-
 float profit;
 
 Set Location:
@@ -172,45 +117,34 @@ PUT localhost:8080/event/setLocation/{eventId}/{locationId
 6.Product
 Attributes:
 int id;
-
 String name;
-
 float price;
-
 int size;
-
 String unit;
 
 Show all Food/Drinks:
 GET localhost:8080/products/food/all
-
 GET localhost:8080/products/drinks/all
 
 Sort Food/Drinks by Price ASC/DESC:
 GET localhost:8080/products/food/sortByPrice/asc
-
 GET localhost:8080/products/food/sortByPrice/desc
-
 GET localhost:8080/products/drinks/sortByPrice/asc
-
 GET localhost:8080/products/drinks/sortByPrice/desc
 
 
 7.Order
 Attributes:
 int id;
-
 String date_time;
-
 Location location;
-
 Customer customer;
-
 List<OrderProduct> orderProducts;
 
 Add Products to Order:
 PUT localhost:8080/order/addProduct/{orderId}/{productId}/{count}
 
 IMPORTANT: In order to be able to add products to your order, there have to be enough stock at the location the order is associated to.
+
 Calculate total Price:
 GET localhost:8080/order/getTotalPrice/ORDERID
